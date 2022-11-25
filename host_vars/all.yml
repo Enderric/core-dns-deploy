@@ -1,0 +1,6 @@
+---
+all:
+  children:
+    dnsservers:           
+      hosts:      
+        dextrac: centos.dextrac.ru

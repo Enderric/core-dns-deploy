@@ -1,0 +1,20 @@
+---
+domains:
+  - domain: 'dextrac.ru'
+    mx:
+      - ''
+      - ''
+    txt:
+      - ''
+    sub:
+      - domain: 'dns.dextrac.ru'
+        cname:
+          - ''
+      - domain: 'gl.dextrac.ru'
+        cname:
+          - ''
+      - domain: 'rg.dextrac.ru'
+        cname:
+          - ''
+  - # encis.ru
+    domain: 'encis.ru'

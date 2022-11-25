@@ -1,0 +1,16 @@
+.:53 {
+    forward . 8.8.8.8
+    log
+    errors
+    cache
+}
+
+{% for d in domains %}
+{{d.domain}} {% if 'sub' in d %}{% for s in d.sub %}{{s.domain}}.{{d.domain}} {% endfor %}{% endif %}{
+    file /etc/coredns/zones/{{d.domain}}.db
+    log
+    cache
+    errors
+}
+
+{% endfor %}

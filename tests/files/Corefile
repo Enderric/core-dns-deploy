@@ -1,0 +1,21 @@
+.:53 {
+    forward . 8.8.8.8
+    log
+    errors
+    cache
+}
+
+dextrac.ru dns.dextrac.ru.dextrac.ru gl.dextrac.ru.dextrac.ru rg.dextrac.ru.dextrac.ru {
+    file /etc/coredns/zones/dextrac.ru.db
+    log
+    cache
+    errors
+}
+
+encis.ru {
+    file /etc/coredns/zones/encis.ru.db
+    log
+    cache
+    errors
+}
+

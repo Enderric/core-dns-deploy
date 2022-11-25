@@ -1,0 +1,5 @@
+---
+- hosts: dnsservers
+  roles:
+    - dnstier
+    - cloudalchemy.coredns

@@ -1,0 +1,23 @@
+---
+- hosts: 127.0.0.1
+  vars_files:
+    - ../roles/common/vars/main.yml
+  tasks:
+    - name: Create a directory
+      file:
+        path: zones
+        state: directory
+      delegate_to: localhost
+
+    - name: Test dns zone files generation
+      template: src=../roles/dnstier/templates/dnszone.db.j2 dest=zones/{{ item.domain }}.db
+      with_items: "{{ domains }}"
+    
+    - name: Create a directory
+      file:
+        path: files
+        state: directory
+      delegate_to: localhost
+
+    - name: Test Corefile for coredns generation
+      template: src=../roles/dnstier/templates/Corefile.j2 dest=files/Corefile

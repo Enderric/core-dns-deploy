@@ -1,0 +1,29 @@
+$ORIGIN {{ item.domain }}.
+@	3600 IN	SOA ns1.beubo.com. admin.beubo.com. 2017042745 7200 3600 1209600 3600
+	3600 IN NS ns1.beubo.com.
+	3600 IN NS ns2.beubo.com.
+        IN A	95.216.12.246
+        IN AAAA	2a01:4f9:2a:d09::2
+{% if 'mx' in item %}{% for mx in item.mx %}        IN MX  {{mx}}.
+{% endfor %}{% endif %}
+{% if 'txt' in item %}{% for txt in item.txt %}        IN TXT  "{{txt}}"
+{% endfor %}{% endif %}
+{% if 'cname' in item %}{% for cname in item.cname %}        IN CNAME  {{cname}}
+{% endfor %}{% endif %}
+
+*       IN A     95.216.12.246
+        IN AAAA  2a01:4f9:2a:d09::2
+
+{% if 'sub' in item %}{% for d in item.sub %}
+{% if 'ipv4' in d %}{{d.domain}}       IN A  {{d.ipv4}}
+{% endif %}
+{% if 'ipv6' in d %}{{d.domain}}       IN AAAA  {{d.ipv6}}
+{% endif %}
+{% if 'mx' in d %}{% for mx in d.mx %}{{d.domain}}        IN MX  {{mx}}.
+{% endfor %}{% endif %}
+{% if 'txt' in d %}{% for txt in d.txt %}{{d.domain}}        IN TXT  "{{txt}}"
+{% endfor %}{% endif %}
+{% if 'cname' in d %}{% for cname in d.cname %}{{d.domain}}        IN CNAME  {{cname}}.
+{% endfor %}{% endif %}
+
+{% endfor %}{% endif %}

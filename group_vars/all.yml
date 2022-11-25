@@ -1,0 +1,9 @@
+---
+
+coredns_config_file: "roles/dnstier/templates/Corefile.j2"
+
+coredns_zone_files_paths:
+  - "/tmp/zones/*"
+
+coredns_system_group: "coredns"
+coredns_system_user: "{{ coredns_system_group }}"
