@@ -6,11 +6,12 @@
 }
 
 {% for d in domains %}
-{{d.domain}} {% if 'sub' in d %}{% for s in d.sub %}{{s.domain}}.{{d.domain}} {% endfor %}{% endif %}{
-    file /etc/coredns/zones/{{d.domain}}.db
+{{d}}:53 {
+    file /etc/coredns/zones/{{d}}.db
     log
     cache
     errors
+}
 }
 
 {% endfor %}

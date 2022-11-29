@@ -1,19 +1,18 @@
-$ORIGIN {{ item.domain }}.
-@	3600 IN	SOA cs-dns01.local. admin.servicecloud.ru. 2017042745 7200 3600 1209600 3600
-	3600 IN NS cs-dns01.local.	
+$ORIGIN servicecloud.info.
+@	3600 IN	SOA cs-dns01.localdomain. admin.servicecloud.ru. 2017042745 7200 3600 1209600 3600
+	3600 IN NS cs-dns01.localdomain.	
         IN A	141.101.185.17
         IN AAAA	2a01:4f9:2a:d09::2
-{% if 'mx' in item %}{% for mx in item.mx %}        IN MX  {{mx}}.
+{% if 'mx' in servicecloud_info %}{% for mx in servicecloud_info.mx %}        IN MX  {{mx}}.
 {% endfor %}{% endif %}
-{% if 'txt' in item %}{% for txt in item.txt %}        IN TXT  "{{txt}}"
+{% if 'txt' in servicecloud_info %}{% for txt in servicecloud_info.txt %}        IN TXT  "{{txt}}"
 {% endfor %}{% endif %}
-{% if 'cname' in item %}{% for cname in item.cname %}        IN CNAME  {{cname}}
+{% if 'cname' in servicecloud_info %}{% for cname in servicecloud_info.cname %}        IN CNAME  {{cname}}
 {% endfor %}{% endif %}
 
-*       IN A     141.101.185.17
-        IN AAAA  2a01:4f9:2a:d09::2
 
-{% if 'sub' in item %}{% for d in item.sub %}
+
+{% if 'sub' in servicecloud_info %}{% for d in servicecloud_info.sub %}
 {% if 'ipv4' in d %}{{d.domain}}       IN A  {{d.ipv4}}
 {% endif %}
 {% if 'ipv6' in d %}{{d.domain}}       IN AAAA  {{d.ipv6}}
