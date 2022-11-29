@@ -1,8 +1,7 @@
 $ORIGIN {{ item.domain }}.
-@	3600 IN	SOA ns1.beubo.com. admin.beubo.com. 2017042745 7200 3600 1209600 3600
-	3600 IN NS ns1.beubo.com.
-	3600 IN NS ns2.beubo.com.
-        IN A	95.216.12.246
+@	3600 IN	SOA cs-dns01.local. admin.servicecloud.ru. 2017042745 7200 3600 1209600 3600
+	3600 IN NS cs-dns01.local.	
+        IN A	141.101.185.17
         IN AAAA	2a01:4f9:2a:d09::2
 {% if 'mx' in item %}{% for mx in item.mx %}        IN MX  {{mx}}.
 {% endfor %}{% endif %}
@@ -11,7 +10,7 @@ $ORIGIN {{ item.domain }}.
 {% if 'cname' in item %}{% for cname in item.cname %}        IN CNAME  {{cname}}
 {% endfor %}{% endif %}
 
-*       IN A     95.216.12.246
+*       IN A     141.101.185.17
         IN AAAA  2a01:4f9:2a:d09::2
 
 {% if 'sub' in item %}{% for d in item.sub %}

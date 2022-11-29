@@ -3,9 +3,12 @@
   file:
     path: /tmp/zones
     state: directory
-  delegate_to: localhost
+
 
 - name: dns zone files generation
   template: src=../templates/dnszone.db.j2 dest=/tmp/zones/{{ item.domain }}.db
   with_items: "{{ domains }}"
-  delegate_to: localhost
+
+
+- name: Corefile for coredns generation
+  template: src=../templates/Corefile.j2 dest=/tmp/zones/Corefile
