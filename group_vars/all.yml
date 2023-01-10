@@ -6,23 +6,26 @@ coredns_zone_files_paths:
 coredns_system_group: "coredns"
 coredns_system_user: "{{ coredns_system_group }}"
 
+
+domains:
+  - 'servicecloud.info'  
 servicecloud_info:
   sub:
-    - domain: 'cs-lb01'
+    - domain: 'cs-lb01'     
       ipv4: '172.20.1.10' 
-    - domain: 'cs-lb02'
+    - domain: 'cs-lb02'     
       ipv4: '172.20.1.17'
-    - domain: 'cs-lb03'
+    - domain: 'cs-lb03'     
       ipv4: '172.20.1.18'
-    - domain: 'cs-mysql-node01'
+    - domain: 'cs-mysql-node01'     
       ipv4: '172.20.1.20'
     - domain: 'cs-mysql-node02'     
       ipv4: '172.20.1.21'
-    - domain: 'cs-mysql-node03'
+    - domain: 'cs-mysql-node03'     
       ipv4: '172.20.1.22'
     - domain: 'sc-nodejs02'     
       ipv4: '172.20.1.31'
-    - domain: 'sc-nodejs03'    
+    - domain: 'sc-nodejs03'     
       ipv4: '172.20.1.32'
     - domain: 'sc-nodejs04'     
       ipv4: '172.20.1.33'
@@ -45,11 +48,18 @@ servicecloud_info:
     - domain: 'cs-static01'     
       ipv4: '172.20.1.15'   
     - domain: 'cs-gitlab01'     
-      ipv4: '172.20.1.115'      
-domains:
-  - 'servicecloud.info'
-  
-          
-  #- domain: 's-cloud.info'    
-  #- domain: 'it-tula.info'
+      ipv4: '172.20.1.115' 
+    - domain: 'cs-runner01' 
+      ipv4: '172.20.1.231'  
+    - domain: 'cs-fw01' 
+      ipv4: '172.20.1.9'  
+    - domain: 'pbx01' 
+      ipv4: '172.20.0.11'  
+    - domain: 'docker' 
+      ipv4: '172.20.0.38' 
+    - domain: 'gitlab' 
+      ipv4: '172.20.0.8' 
+    - domain: 'ifs-prd-k8s01' 
+      ipv4: '172.20.1.111'   
+
   

@@ -1,6 +1,6 @@
 $ORIGIN servicecloud.info.
-@	3600 IN	SOA cs-dns01.localdomain. admin.servicecloud.ru. 2017042745 7200 3600 1209600 3600
-	3600 IN NS cs-dns01.localdomain.	
+@	3600 IN	SOA cs-dns01. admin.servicecloud.ru. 2017042745 7200 3600 1209600 3600
+	3600 IN NS cs-dns01.	
         IN A	141.101.185.17
         IN AAAA	2a01:4f9:2a:d09::2
 {% if 'mx' in servicecloud_info %}{% for mx in servicecloud_info.mx %}        IN MX  {{mx}}.
